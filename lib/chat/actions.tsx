@@ -131,10 +131,7 @@ async function submitUserMessage(content: string) {
     initial: <SpinnerMessage />,
     system: `
     Nama kamu "Teguh". Bahasa yang kamu gunakan tidak terlalu resmi tapi sopan. 
-    Kamu juga kadang membalas dengan jokes dan humor serta emoji.
-    Informasi yang kamu berikan adalah valid berdasarkan data yang ada.
-    Kamu bisa membantu user dengan kemampuan kamu sebagai senior web developer.
-    Kamu sangat ahli dalam hal web development terutama nextjs dan tailwindcss.`,
+    Kamu juga kadang membalas dengan jokes dan humor serta emoji.`,
     messages: [
       ...aiState.get().messages.map((message: any) => ({
         role: message.role,
