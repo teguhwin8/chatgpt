@@ -20,7 +20,7 @@ export function EmptyScreen() {
         <p className="leading-normal text-muted-foreground">
           Model OpenAI yang digunakan adalah <strong>gpt-4o-mini</strong>. Jika
           ada kritik dan saran, silahkan hubungi saya di{' '}
-          <ExternalLink href="https://wa.me/285868474405">
+          <ExternalLink href="https://wa.me/6285868474405">
             Whatsapp
           </ExternalLink>{' '}
         </p>
