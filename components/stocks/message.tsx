@@ -10,16 +10,33 @@ import remarkMath from 'remark-math'
 import { StreamableValue } from 'ai/rsc'
 import { useStreamableText } from '@/lib/hooks/use-streamable-text'
 
-// Different types of message bubbles.
-
 export function UserMessage({ children }: { children: React.ReactNode }) {
+  console.log({ children })
   return (
     <div className="group relative flex items-start md:-ml-12">
       <div className="flex size-[25px] shrink-0 select-none items-center justify-center rounded-md border bg-background shadow-sm">
         <IconUser />
       </div>
       <div className="ml-4 flex-1 space-y-2 overflow-hidden pl-2">
-        {children}
+        {typeof children === 'string'
+          ? children.split(/(```\w*\n[\s\S]*?\n```)/g).map((part, index) => {
+              if (part.trim().startsWith('```')) {
+                return (
+                  <CodeBlock
+                    key={index}
+                    language={part.match(/```(\w+)/)?.[1] || 'javascript'}
+                    value={part.replace(/```.*?\n|\n```/g, '').trim()}
+                  />
+                )
+              }
+
+              return part
+                .split('\n')
+                .map((line, lineIndex) => (
+                  <p key={`${index}-${lineIndex}`}>{line || <br />}</p>
+                ))
+            })
+          : children}
       </div>
     </div>
   )
