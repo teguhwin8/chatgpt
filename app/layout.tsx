@@ -3,18 +3,18 @@ import { GeistMono } from 'geist/font/mono'
 
 import '@/app/globals.css'
 import { cn } from '@/lib/utils'
-import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { Providers } from '@/components/providers'
 import { Header } from '@/components/header'
 import { Toaster } from '@/components/ui/sonner'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata = {
   metadataBase: process.env.VERCEL_URL
     ? new URL(`https://${process.env.VERCEL_URL}`)
     : undefined,
   title: {
-    default: 'Next.js AI Chatbot',
-    template: `%s - Next.js AI Chatbot`
+    default: 'Teguh Bot',
+    template: `%s - Teguh Bot`
   },
   description: 'An AI-powered chatbot template built with Next.js and Vercel.',
   icons: {
@@ -59,6 +59,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           {/* <TailwindIndicator /> */}
         </Providers>
       </body>
+      <GoogleAnalytics gaId="G-FV1BPYNG52" />
     </html>
   )
 }

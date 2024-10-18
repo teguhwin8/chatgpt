@@ -242,8 +242,6 @@ export const AI = createAI<AIState, UIState>({
 })
 
 export const getUIStateFromAIState = (aiState: Chat) => {
-  console.log('hai')
-  console.log(aiState.messages)
   return aiState.messages
     .filter(message => message.role !== 'system')
     .map((message, index) => ({
